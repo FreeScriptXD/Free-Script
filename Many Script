@@ -1,0 +1,59 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Copy Op Script", "Ocean")
+local Tab = Window:NewTab("Tp To Players")
+local Section = Tab:NewSection("Script Tp To Players")
+Plr = {}
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+    table.insert(Plr,v.Name) 
+end
+local drop = Section:NewDropdown("Select Player!", "Click To Select", Plr, function(t)
+   PlayerTP = t
+end)
+Section:NewButton("Click To TP", "", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[PlayerTP].Character.HumanoidRootPart.CFrame
+end)
+Section:NewToggle("Auto Tp", "", function(t)
+_G.TPPlayer = t
+while _G.TPPlayer do wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[PlayerTP].Character.HumanoidRootPart.CFrame
+end
+end)
+
+Section:NewButton("Refresh Dropdown","Refresh Dropdown", function()
+  drop:Refresh(Plr)
+end)
+local Tab = Window:NewTab("Wersdown Script")
+local Section = Tab:NewSection("Script Wersdown Amentes")
+Section:NewDropdown("Clicked For Script", "DropdownInf", {"Super Jump Race", "Strong Muscle Simulator","Fly Race", "Build A Boat Treasure", "Arsenal", "Tower Of Hell", "Merga Simulator", "Murder Mystery2", "Snow Plow Simulator", "Phantom Forces", "Sword Race", "Sword Fighters Simulator"},function(currentOption)
+    print(currentOption)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Amenteso/robloxscripts/main/Key.lua",true))()
+end)
+Section:NewSlider("WalkSpeed", "SliderInfo", 500, 50, function(A) 
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = A
+end)
+Section:NewSlider("JumpPower", "SliderInfo", 500, 50, function(A) 
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = A
+end)
+local Tab = Window:NewTab("Script Admin")
+local Section = Tab:NewSection("Script Admin")
+Section:NewButton("Clicked For Script", "ButtonInfo", function()
+    print("Clicked")
+end)
+Section:NewSlider("WalkSpeed", "SliderInfo", 500, 50, function(A) 
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = A
+end)
+Section:NewSlider("JumpPower", "SliderInfo", 500, 50, function(A) 
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = A
+end)
+local Tab = Window:NewTab("Free Fire Script")
+local Section = Tab:NewSection("Free Fire Max")
+Section:NewButton("Clicked For Script", "ButtonInfo", function()
+    print("Clicked")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/markxd07/Misc-Scripts/main/Free-Fire-Max.lua"))()
+end)
+Section:NewSlider("WalkSpeed", "SliderInfo", 500, 50, function(A) 
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = A
+end)
+Section:NewSlider("JumpPower", "SliderInfo", 500, 50, function(A) 
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = A
+end)
